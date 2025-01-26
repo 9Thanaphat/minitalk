@@ -1,22 +1,18 @@
 #include <signal.h>
-#include <stdio.h>
-#include <stdlib.h>
 #include <unistd.h>
 #include "libft.h"
 
 void send_bit(int pid, unsigned char ch)
 {
     int i;
-    int bit;
 
     i = 7;
     while (i >= 0)
     {
-        bit = (ch >> i) & 1;
-        if (bit == 0)
-            kill(pid, SIGUSR1);
-        else
+        if ((ch >> i) & 1)
             kill(pid, SIGUSR2);
+        else
+            kill(pid, SIGUSR1);
         usleep(100);
         i--;
     }

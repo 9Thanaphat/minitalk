@@ -1,3 +1,5 @@
+all: server client
+
 CC = gcc
 CFLAGS =
 LIBFT_DIR = ./libft
@@ -28,8 +30,6 @@ fclean: clean
 	rm -f client server
 
 re: fclean all
-
-all: server client
 
 bonus : server client
 

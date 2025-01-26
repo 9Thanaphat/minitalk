@@ -1,12 +1,11 @@
 #include <signal.h>
-#include <stdio.h>
 #include <unistd.h>
 #include "libft.h"
 
 static  void get_bit(int sig)
 {
     static int i = 0;
-    static unsigned char ch;
+    static unsigned char ch = 0;
     int bit;
 
     if (sig == SIGUSR1)
@@ -17,9 +16,15 @@ static  void get_bit(int sig)
     ch = (ch << 1) | (bit & 1);
     if (++i == 8)
     {
+        if (ch == 0)
+        {
+            i = 0;
+            return;
+        }
+
         write(1, &ch, 1);
         i = 0;
-    }   
+    }
 }
 
 int main()
