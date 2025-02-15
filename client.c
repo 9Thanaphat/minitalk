@@ -6,7 +6,7 @@
 /*   By: ttangcha <ttangcha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 14:13:32 by ttangcha          #+#    #+#             */
-/*   Updated: 2025/02/03 14:16:20 by ttangcha         ###   ########.fr       */
+/*   Updated: 2025/02/15 21:08:31 by ttangcha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	send_bit(int pid, unsigned char ch)
 			kill(pid, SIGUSR2);
 		else
 			kill(pid, SIGUSR1);
-		usleep(100);
+		usleep(500);
 		i--;
 	}
 }

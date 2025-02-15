@@ -1,7 +1,7 @@
 all: server client
 
 CC = gcc
-CFLAGS =
+CFLAGS = -Wall -Wextra -Werror
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 SRCS_CLIENT = client.c
